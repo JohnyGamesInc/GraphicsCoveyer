@@ -41,7 +41,7 @@ Shader "Custom/UnlitTextureBend"
             v2f vert (appdata_full v)
             {
                 v2f result;
-                v.vertex.xyz += v.normal * _HeightBend * v.texcoord.x * v.texcoord.x;
+                v.vertex.xyz += sin(v.normal * _HeightBend * v.texcoord.x);
                 result.vertex = UnityObjectToClipPos(v.vertex);
                 result.uv = TRANSFORM_TEX(v.texcoord, _Tex1);
                 return result;
